@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
@@ -123,6 +124,12 @@
             </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a href="?pg=setting" class="nav-link">
+            <i class="nav-icon bi bi-gear"></i>
+            <p>Setting</p>
+            </a>
+        </li>
         <li class="nav-header">EXAMPLES</li>
         <li class="nav-item">
             <a href="../calendar.html" class="nav-link">
@@ -130,14 +137,6 @@
             <p>
                 Calendar
                 <span class="badge badge-info right">2</span>
-            </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
-            <i class="nav-icon far fa-image"></i>
-            <p>
-                Gallery
             </p>
             </a>
         </li>

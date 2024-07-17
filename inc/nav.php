@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li><a class="nav-link" href="?pg=shop">Shop</a></li>
