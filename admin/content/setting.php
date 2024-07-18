@@ -1,4 +1,5 @@
 <?php 
+    $querySetting = mysqli_query($koneksi, "SELECT * FROM setting ORDER BY id DESC");
     if(isset($_POST['simpan'])){
         $email_website = $_POST['email_website'];
         $no_telp_website = $_POST['no_telp_website'];
@@ -9,69 +10,72 @@
         $linkedin = $_POST['linkedin'];
         // $logo = $_POST['logo'];                    
 
-        $querySetting = mysqli_query($koneksi, "SELECT * FROM setting ORDER BY id DESC");
         if(mysqli_num_rows($querySetting) > 0){
             // update
+            $id = mysqli_insert_id($koneksi);
+            $update = mysqli_query($koneksi, "UPDATE setting SET email_website = '$email_website', no_telp_website = '$no_telp_website', alamat_website = '$alamat_website', ig = '$ig', twitter = '$twitter', fb = '$fb', linkedin = '$linkedin' WHERE id = '2'");
+            header("location:?pg=setting&edit=berhasil");
         } else{
             // insert
             $insert = mysqli_query($koneksi, "INSERT INTO setting (email_website, no_telp_website, alamat_website, ig, twitter, fb, linkedin) VALUES ('$email_website', '$no_telp_website','$alamat_website', '$ig', '$twitter', '$fb', '$linkedin')");
+            header("location:?pg=setting&tambah=berhasil");
         }
     }
+    $rowSetting = mysqli_fetch_assoc($querySetting);
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
     <!-- Email Start -->
     <div class="mb-3">
         <label for="">Email</label>
-        <input type="email" class="form-control" name="email_website" placeholder="Email Website" id="">
+        <input value="<?= $rowSetting['email_website'] ?>" type="email" class="form-control" name="email_website" placeholder="Email Website" id="">
     </div>
 
     <!-- No Telp Start -->
     <div class="mb-3">
         <label for="">No Telp</label>
-        <input type="number" class="form-control" name="no_telp_website" placeholder="No Telpon Website" id="">
+        <input value="<?= $rowSetting['no_telp_website'] ?>" type="number" class="form-control" name="no_telp_website" placeholder="No Telpon Website" id="">
     </div>
     
     <!-- Instagram -->
     <div class="mb-3">
         <label for="">Instagram</label>
-        <input type="url" class="form-control" name="ig" placeholder="Instagram Link" id="">
+        <input value="<?= $rowSetting['ig'] ?>" type="url" class="form-control" name="ig" placeholder="Instagram Link" id="">
     </div>
 
     <!-- Twitter -->
     <div class="mb-3">
         <label for="">Twitter</label>
-        <input type="url" class="form-control" name="twitter" placeholder="Twitter Link" id="">
+        <input value="<?= $rowSetting['twitter'] ?>" type="url" class="form-control" name="twitter" placeholder="Twitter Link" id="">
     </div>
 
     <!-- Facebook -->
     <div class="mb-3">
         <label for="">Facebook</label>
-        <input type="url" class="form-control" name="fb" placeholder="Facebook Link" id="">
+        <input value="<?= $rowSetting['fb'] ?>" type="url" class="form-control" name="fb" placeholder="Facebook Link" id="">
     </div>
 
     <!-- Linkedin -->
     <div class="mb-3">
         <label for="">Linkedin</label>
-        <input type="url" class="form-control" name="linkedin" placeholder="Linkedin Link" id="">
+        <input value="<?= $rowSetting['linkedin'] ?>" type="url" class="form-control" name="linkedin" placeholder="Linkedin Link" id="">
     </div>
 
     <!-- Alamat -->
     <div class="mb-3">
         <label for="">Alamat</label>
-        <textarea name="alamat_website" class="form-control" id=""></textarea>
+        <textarea name="alamat_website" class="form-control" id=""><?= $rowSetting['alamat_website'] ?></textarea>
     </div>
 
     <!-- Logo -->
     <div class="mb-3">
         <label for="">Logo</label>
-        <input type="file" name="logo" placeholder="Logo" id="">
+        <input value="<?= $rowSetting['logo'] ?>" type="file" name="logo" placeholder="Logo" id="">
     </div>
 
     <!-- Button Submit -->
     <div class="mb-3">
-        <input type="submit" class="btn btn-primary mr-2" value="Simpan"
-        name="<?php echo isset($_GET['edit']) ? 'edit' : 'simpan'?>">
+        <input type="submit" class="btn btn-primary" name="simpan" value="Simpan">
         <a href="?pg=setting">Kembali</a>
     </div>
 </form>
