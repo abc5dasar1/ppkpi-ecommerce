@@ -14,7 +14,7 @@
             echo "gagal";
             // header("location:?pg=tambah-user&pesan-tambah-gagal");
         } else {
-            header("location:?pg=user&pesan-tambah-berhasil");
+            header("location:?pg=user&pesan=tambah-berhasil");
         }
     }
 
