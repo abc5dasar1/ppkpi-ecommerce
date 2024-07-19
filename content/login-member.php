@@ -24,20 +24,24 @@
         <div class="block">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-8 pb-4">
-                    <form action="" method="post">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="text-black" for="lname">Email</label>
-                                <input type="email" class="form-control" name="email">
+                    <?php if (isset($_SESSION['id_member'])) : ?>
+                        WELCOME HOME
+                    <?php else : ?>
+                        <form action="" method="post">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="text-black" for="lname">Email</label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="text-black" for="email">Password</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <button type="submit" name="simpan" class="btn btn-primary-hover-outline mt-3 me-3">Login</button>
-                        <a href="?pg=member">Register</a>
-                    </form>
+                            <div class="form-group">
+                                <label class="text-black" for="email">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" name="simpan" class="btn btn-primary-hover-outline mt-3 me-3">Login</button>
+                            <a href="?pg=member">Register</a>
+                        </form>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

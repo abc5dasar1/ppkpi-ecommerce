@@ -1,5 +1,5 @@
 <?php
-$queryProduk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id DESC LIMIT 3");
+    $queryProduk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id DESC LIMIT 3");
 ?>
 
 <!-- Start Hero Section -->
@@ -27,7 +27,6 @@ $queryProduk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id DESC LIM
 <div class="product-section">
     <div class="container">
         <div class="row">
-
             <!-- Start Column 1 -->
             <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
                 <h2 class="mb-4 section-title">Crafted with excellent material.</h2>
@@ -41,6 +40,8 @@ $queryProduk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id DESC LIM
                 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                     <form action="?pg=action-cart" method="post">
                         <button style="border:none" type="submit" class="product-item">
+                            <input type="hidden" name="kuantitas" value="<?= $rowProduk['kuantitas']?>">
+                            <input type="hidden" name="id_produk" value="<?= $rowProduk['id']?>">
                             <img src="admin/upload/<?= $rowProduk['foto'] ?>" class="img-fluid product-thumbnail">
                             <h3 class="product-title"><?= $rowProduk['nama_barang'] ?></h3>
                             <strong class="product-price"><?= "Rp" . number_format($rowProduk['harga']) ?></strong>
@@ -48,8 +49,7 @@ $queryProduk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id DESC LIM
                             <span class="icon-cross">
                                 <img src="asset/fe/images/cross.svg" class="img-fluid">
                             </span>
-            </button>
-
+                        </button>
                     </form>
                 </div>
             <?php endwhile ?>
