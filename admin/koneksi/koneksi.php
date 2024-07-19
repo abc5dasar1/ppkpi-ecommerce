@@ -8,4 +8,3 @@
     if(!$koneksi){
         die("connection failed" . mysqli_connect_error());
     }
-?>

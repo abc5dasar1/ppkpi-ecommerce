@@ -11,7 +11,7 @@
         if(!$insertMember){
             $_SESSION['id_member'] = mysqli_insert_id($koneksi);
             $_SESSION['id_session'] = session_id();
-            header("location:?pg=member&tambah=berhasil");
+            header("location:?pg=member&tambah-berhasil");
         }
     }
 ?>
